@@ -31,6 +31,12 @@ stages:
     commands:
     - rsync -a /etc/modprobe.d/alc287.conf /sysconf/modprobe.d/alc287.conf
 
+  - name: extra-packages
+    type: apt
+    sources:
+      - packages:
+        - podman-compose
+
   - name: extra-modules
     type: includes
     includes:
