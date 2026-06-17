@@ -4,7 +4,7 @@ vibversion: 1.0.7
 
 stages:
 - id: build
-  base: ghcr.io/vanilla-os/desktop:dev
+  base: ghcr.io/vanilla-os/desktop:main
   addincludes: true
   singlelayer: false
   labels:
@@ -26,10 +26,10 @@ stages:
 
   # Put your custom actions below this comment
 
-  # - name: copy-configs
-  #   type: shell
-  #   commands:
-  #   - rsync -a /etc/modprobe.d/alc287.conf /sysconf/modprobe.d/alc287.conf
+  - name: copy-configs
+    type: shell
+    commands:
+    - rsync -a /etc/modprobe.d/alc287.conf /sysconf/modprobe.d/alc287.conf
 
   - name: extra-packages
     type: apt
