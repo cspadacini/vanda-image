@@ -26,10 +26,10 @@ stages:
 
   # Put your custom actions below this comment
 
-  - name: copy-configs
-    type: shell
-    commands:
-    - rsync -a /etc/modprobe.d/alc287.conf /sysconf/modprobe.d/alc287.conf
+  # - name: copy-configs
+  #   type: shell
+  #   commands:
+  #   - rsync -a /etc/modprobe.d/alc287.conf /sysconf/modprobe.d/alc287.conf
 
   - name: extra-packages
     type: apt
