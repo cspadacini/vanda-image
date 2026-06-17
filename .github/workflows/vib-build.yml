@@ -102,7 +102,7 @@ jobs:
     steps:
     - uses: actions/checkout@v6
 
-    - uses: vanilla-os/vib-gh-action@v1.0.7
+    - uses: vanilla-os/vib-gh-action@v1.1.0
       with:
         recipe: 'recipe.yml'
         plugins: 'Vanilla-OS/vib-fsguard:v1.5.3'
@@ -140,7 +140,7 @@ jobs:
       uses: docker/setup-buildx-action@v4
 
     - name: Login to GitHub Package Registry
-      uses: docker/login-action@v3
+      uses: docker/login-action@v4
       if: ${{ github.event_name != 'pull_request' }}
       with:
         registry: ghcr.io
@@ -162,7 +162,7 @@ jobs:
         provenance: false
 
     - name: Attest pushed image
-      uses: actions/attest-build-provenance@v3
+      uses: actions/attest-build-provenance@v4
       id: attest
       if: ${{ github.event_name != 'pull_request' }}
       with:

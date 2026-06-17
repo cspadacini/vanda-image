@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: vanilla-os/vib-gh-action@v1.0.7
+      - uses: vanilla-os/vib-gh-action@v1.1.0
         with:
             recipe: 'recipe.yml'
             plugins: 'Vanilla-OS/vib-fsguard:v1.5.3'
@@ -41,6 +41,6 @@ jobs:
 
       - name: Attest Release Files
         id: attest
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: 'Containerfile'
