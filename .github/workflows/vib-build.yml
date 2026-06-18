@@ -2,7 +2,7 @@ name: Vib Build
 
 on:
   push:
-    branches: [ "alc287" ]
+    branches: [ "main", "alc287" ]
     tags:
       - '*'
   schedule:
