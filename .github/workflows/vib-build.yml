@@ -238,14 +238,12 @@ jobs:
         subject-digest: ${{ steps.export.outputs.digest }}
         push-to-registry: false
 
-  cleanup:
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-    steps:
-      - uses: dataaxiom/ghcr-cleanup-action@v1
-        with:
-          dry-run: true
-          older-than: 30 days
-          keep-n-tagged: 10
-          keep-n-untagged: 5
+    - name: Cleanup container registry images
+      uses: dataaxiom/ghcr-cleanup-action@v1
+      with:
+        dry-run: true
+        owner: ${{ env.REPO_OWNER_LOWERCASE }}
+        repository: "${{ env.REPO_OWNER_LOWERCASE }}/${{ env.CUSTOM_IMAGE_NAME }}"
+        older-than: 30 days
+        keep-n-tagged: 10
+        keep-n-untagged: 5
