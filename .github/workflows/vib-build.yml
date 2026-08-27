@@ -237,3 +237,15 @@ jobs:
         subject-name: ${{ env.IMAGE_URL }}
         subject-digest: ${{ steps.export.outputs.digest }}
         push-to-registry: false
+
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: dataaxiom/ghcr-cleanup-action@v1
+        with:
+          dry-run: true
+          older-than: 30 days
+          keep-n-tagged: 10
+          keep-n-untagged: 5

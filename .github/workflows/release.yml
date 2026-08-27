@@ -43,13 +43,3 @@ jobs:
         uses: actions/attest-build-provenance@v3
         with:
           subject-path: 'Containerfile'
-  cleanup:
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-    steps:
-      - uses: dataaxiom/ghcr-cleanup-action@v1
-        with:
-          dry-run: true
-          older-than: 30 days
-          keep-n-most-recent: 10
